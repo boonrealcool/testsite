@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Born to Write - My Story</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #121212;
+            color: #fff;
+            line-height: 1.8;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+        }
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 5%;
+        }
+        .story-section {
+            margin-bottom: 40px;
+        }
+        .section-title {
+            font-family: 'Merriweather', serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+            line-height: 1.3;
+        }
+        .section-subtitle {
+            font-family: 'Merriweather', serif;
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            line-height: 1.3;
+        }
+        .story-image {
+            max-width: 100%;
+            height: auto;
+            margin: 30px auto;
+            border-radius: 5px;
+            display: block;
+        }
+        .story-text {
+            text-align: left;
+            margin: 30px auto;
+            max-width: 700px;
+        }
+        .story-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+        .highlight {
+            color: #ffff00;
+            font-weight: bold;
+        }
+        .red-text {
+            color: #ff0000;
+            text-align: center;
+            margin: 20px 0;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .next-section {
+            font-family: 'Merriweather', serif;
+            font-size: 32px;
+            margin: 50px 0 30px;
+            text-align: left;
+            font-style: italic;
+            line-height: 1.4;
+            position: relative;
+            padding-top: 30px;
+        }
+        .next-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #e74c3c;
+        }
+        .btn-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .btn svg {
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .btn:hover {
+            background-color: #c0392b;
+        }
+        footer {
+            background-color: #121212;
+            background-image: url('/api/placeholder/1200/300');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 5% 30px;
+            position: relative;
+        }
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .footer-content {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-logo {
+            display: flex;
+            align-items: flex-start;
+        }
+        .footer-logo img {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+        }
+        .footer-logo-text {
+            font-weight: bold;
+            font-size: 28px;
+            font-family: 'Merriweather', serif;
+            letter-spacing: 1px;
+        }
+        .footer-description {
+            max-width: 350px;
+            margin-top: 15px;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            padding: 0 20px;
+        }
+        .footer-links h3 {
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-family: 'Merriweather', serif;
+        }
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        .footer-links a:hover {
+            color: #e74c3c;
+        }
+        .footer-contact {
+            text-align: right;
+        }
+        .footer-contact h3 {
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-family: 'Merriweather', serif;
+        }
+        .contact-info {
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            border-radius: 50%;
+            color: #121212;
+            margin-left: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .verified-badge {
+            display: inline-block;
+            margin-top: 30px;
+        }
+        .verified-badge img {
+            height: 60px;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 60px;
+            position: relative;
+            font-size: 14px;
+        }
+        .made-with-love {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .made-with-love span {
+            margin: 0 5px;
+        }
+        .heart {
+            color: #e74c3c;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <div class="story-section">
+            <h1 class="section-title">Hành Trình "Nghìn Đơn" Đã Khởi Đầu Như Thế...</h1>
+            <h2 class="section-subtitle">...Và Cái Kết Khiến Chúng Ta Phải Nghĩ Lại Về Kinh Doanh Trên Internet!!</h2>
+            
+            <p class="red-text">(Yêu tim đừng đọc)</p>
+            
+            <img src="/api/placeholder/800/400" alt="Stacks of books" class="story-image">
+            
+            <h3 class="next-section">Mọi Đám Cháy Bắt Đầu Từ Một Mồi Lửa...</h3>
+            
+            <div class="story-text">
+                <p>Năm năm về trước, tôi bắt đầu kinh doanh bán một phẩm handmade.</p>
+                
+                <p>Nó có tên La Jolie.</p>
+                
+                <p>Như bao người trẻ mới khởi nghiệp, tôi đầu tư đủ thứ xịn nhất, từ bài PR trên báo, từ thiết kế đẹp, thuê quay chụp đắt tiền...</p>
+                
+                <p>Dẫu tự nhiên như thế, tôi nghĩ sản phẩm của tôi đã được trải thảm những thứ tốt nhất.</p>
+                
+                <p>Tôi nghĩ mọi người sẽ tranh nhau mua nó, yêu thích nó, thậm chí giới thiệu nó cho bạn bè.</p>
+                
+                <p>Tôi nghĩ tôi sắp giàu, tôi sắp thành đạt!!</p>
+                
+                <p>Rồi mọi người sẽ thì thầm nói về tôi, đến nỗi người yêu cũ cũng sẽ quay lại với tôi, nằm nỉ non xin tôi sự thương xót...</p>
+                
+                <p>Tôi rì mì từng chi tiết, thuê người review.</p>
+                
+                <p>Book hẳn Agency để chạy quảng cáo.</p>
+                
+                <p>Mọi thứ đều hoàn hảo.</p>
+                
+                <p>Ngoại trừ...</p>
+                
+                <p class="highlight">KHÔNG AI MUA SẢN PHẨM CỦA TÔI!!</p>
+            </div>
+            
+            <h3 class="next-section">Thử Lại Xem...</h3>
+            
+            <div class="story-text">
+                <p>Sau cú ngã đó, tôi đã trở về mặt đất, tôi bắt đầu hiểu tôi không giỏi và thông minh lắm như mẹ tôi vẫn thường hay khen.</p>
+                
+                <p>Tôi quyết định đã đến lúc đầu tư cho việc học!</p>
+                
+                <p>Sau đó, tôi tham gia hàng loạt các lớp học về chủ đề kinh doanh, với những lời hứa hẹn về doanh số khiến tôi rạo rực.</p>
+                
+                <p>Lần này tôi chắc mẩm mình đã tìm được "chân thành".</p>
+                
+                <p>Nhưng hóa ra, đây lại chính là giai đoạn khiến tôi <span class="highlight">MẤT TIỀN NHIỀU NHẤT!!</span></p>
+                
+                <p>Cứ mỗi lần đổ tiền vào các khóa học LÀM GIÀU từ kinh doanh, thì tôi lại <span class="highlight">NGHÈO</span> đi thêm một chút...</p>
+                
+                <p>Tôi không thể tính nổi tôi đốt bao nhiêu tiền vào các khóa học, các buổi hội thảo tốn kém.</p>
+                
+                <p>Tôi học đủ thứ "dao tỏ búa lớn" như là các chiến lược, mô hình kinh doanh Canvas, lập kế hoạch kinh doanh...</p>
+                
+                <p>Sau đó một thời gian, tôi đang bán lại sản phẩm của mình...</p>
+                
+                <p>Lần này khá khẩm hơn, tôi bán được "tận" vài chục đơn hàng một tháng.</p>
+                
+                <p>Nhưng tôi nghĩ đó là do tôi bơm tiền ads nhiều, chứ các kiến thức trên tôi lại không ứng dụng được gì.</p>
+                
+                <p>Tôi bắt đầu tự hỏi, liệu kinh doanh online có thực sự phức tạp đến thế??</p>
+            </div>
+            
+            <h3 class="next-section">Thử Lại Lần Nữa</h3>
+            
+            <div class="story-text">
+                <p>Bán hàng bao nhiêu cũng chỉ đủ trả tiền quảng cáo cho Mark, thì tôi không đánh.</p>
+                
+                <p>6 tháng sau, tôi quyết tâm làm lại lần nữa, quá tam ba bận...</p>
+                
+                <p>Tuy nhiên lần này có sự khác biệt.</p>
+                
+                <p>Tôi nhận ra sản phẩm tốt, giá lại rẻ, mẫu mã đẹp... nếu không bán được hàng chắc chắn do Quảng Cáo.</p>
+                
+                <p>Đơn chất lượng không phải là vấn đề, cái đó khách hàng phải mua mới biết được.</p>
+                
+                <p>Nó cũng không phải là về thương hiệu, hay giá cả...</p>
+                
+                <p>Tất cả vấn đề phải nằm ở quảng cáo, cụ thể hơn đó là các 'Bài Quảng Cáo'.</p>
+                
+                <p>Nó là thứ tiếp xúc với khách hàng đầu tiên, là thứ sẽ quyết định xem họ có xuống tiền hay là không.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <a href="#" class="btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="10 8 16 12 10 16 10 8"></polygon>
+            </svg>
+            Xem Nội Dung Ngay
+        </a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="/api/placeholder/60/60" alt="Born2Write Logo">
+                <div>
+                    <div class="footer-logo-text">BORN2WRITE</div>
+                    <div class="footer-description">
+                        Born to Write là trang hướng dẫn 'viết quảng cáo chuyển đổi' kiếm tiền NGAY. Nó được thiết kế dành riêng cho người kinh doanh đang muốn bùng nổ doanh số đơn hàng!
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3>My Story</h3>
+                <a href="#">About</a>
+                <a href="#">Free Course</a>
+                <a href="#">Course</a>
+                <a href="#">FAQ</a>
+                <a href="#">Contact</a>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Liên Hệ Với Tôi:</h3>
+                <div class="contact-info">088.606.8008</div>
+                <div class="contact-info">admin@borntowrite.vn</div>
+                <div class="contact-info">ACM Build, 96 Cao Thắng, P.4, Q3</div>
+                
+                <div class="social-icons">
+                    <a href="#">FB</a>
+                    <a href="#">IN</a>
+                    <a href="#">YT</a>
+                </div>
+                
+                <div class="verified-badge">
+                    <img src="/api/placeholder/100/50" alt="Đã thông báo">
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© All rights reserved 2024</p>
+            <div class="made-with-love">
+                <span>Made with</span>
+                <span class="heart">♥</span>
+                <span>by BorntoWrite</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
